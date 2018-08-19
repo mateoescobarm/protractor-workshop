@@ -1,0 +1,23 @@
+{
+  "name": "protractor-workshop",
+  "version": "1.0.0",
+  "description": "this is a workshop about protractor",
+  "main": "index.js",
+  "scripts": {
+    "test": "protractor protractor.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateoescobarm/protractor-workshop.git"
+  },
+  "author": "Mateo Escobar M - mateoescobarm@gmail.com (mateoescobarm)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mateoescobarm/protractor-workshop/issues"
+  },
+  "homepage": "https://github.com/mateoescobarm/protractor-workshop#readme",
+  "dependencies": {
+    "protractor": "^5.4.0"
+  }
+}
+
