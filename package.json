@@ -25,7 +25,10 @@
   },
   "devDependencies": {
     "@types/jasminewd2": "^2.0.3",
+<<<<<<< HEAD
     "jasmine-spec-reporter": "^4.2.1",
+=======
+>>>>>>> changing to typescript
     "typescript": "^3.0.1"
   }
 }
