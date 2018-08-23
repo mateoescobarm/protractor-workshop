@@ -7,6 +7,7 @@ export const config: Config = {
   specs: ['../test/BuyTshirt.spec.js'],
   noGlobals: true,
   getPageTimeout: 1000,
+
   onPrepare: () => {
     browser.ignoreSynchronization = true;
     reporter();
@@ -17,4 +18,5 @@ export const config: Config = {
       args: ['--headless', '--disable-gpu', '--window-size=800,600']
     }
   }
-};
+}
+
