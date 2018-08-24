@@ -24,11 +24,13 @@
   "homepage": "https://github.com/mateoescobarm/protractor-workshop#readme",
   "dependencies": {
     "jasmine-spec-reporter": "^4.2.1",
+    "npm": "^6.4.0",
     "protractor": "^5.4.0"
   },
   "devDependencies": {
     "@types/jasminewd2": "^2.0.3",
-    "jasmine-spec-reporter": "^4.2.1",
+    "tslint": "^5.11.0",
+    "tslint-config-airbnb": "^5.10.0",
     "typescript": "^3.0.1"
   }
 }
