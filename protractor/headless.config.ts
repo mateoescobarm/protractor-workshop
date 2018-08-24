@@ -7,7 +7,10 @@ export const config: Config = {
   specs: ['../test/BuyTshirt.spec.js'],
   noGlobals: true,
   getPageTimeout: 1000,
+<<<<<<< HEAD
 
+=======
+>>>>>>> page timeout
   onPrepare: () => {
     browser.ignoreSynchronization = true;
     reporter();
