@@ -9,6 +9,7 @@ node_js:
 branches:
 except:
 - /^v\d+\.\d+\.\d+$/
+
 sudo: required
 dist: trusty
 addons:
