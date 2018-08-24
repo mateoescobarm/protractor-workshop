@@ -10,6 +10,9 @@ branches:
 except:
 - /^v\d+\.\d+\.\d+$/
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> travis ok
 
 sudo: required
 dist: trusty
@@ -20,5 +23,8 @@ addons:
       - google-chrome
     packages:
       - google-chrome-stable
+<<<<<<< HEAD
 =======
 >>>>>>> add travis
+=======
+>>>>>>> travis ok
