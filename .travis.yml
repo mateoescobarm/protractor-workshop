@@ -9,8 +9,7 @@ node_js:
 branches:
 except:
 - /^v\d+\.\d+\.\d+$/
-<<<<<<< HEAD
-=======
+
 sudo: required
 dist: trusty
 addons:
@@ -20,4 +19,3 @@ addons:
       - google-chrome
     packages:
       - google-chrome-stable
->>>>>>> 53cd97546081eaa5a8f3210e93850645d113d507
