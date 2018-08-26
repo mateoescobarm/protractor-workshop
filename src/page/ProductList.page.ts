@@ -1,6 +1,6 @@
 import { $, ElementFinder, promise } from 'protractor';
 
-export class productList {
+export class ProductList {
   private get ProductList(): ElementFinder {
     return $('#center_column > ul > li > div > div.left-block > div > a.product_img_link > img');
   }
