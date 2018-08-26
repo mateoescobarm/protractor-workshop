@@ -2,6 +2,7 @@ import { $, browser } from 'protractor';
 import { MenuContentPage } from '../src/page';
 import { ProductList } from '../src/page/ProductList.page';
 import { ProductDetail, ProductSummary } from '../src/page/ProductDetail.page';
+import { SummaryStepPage } from '../src/page/SummaryStep.page';
 
 
 describe('Buy a t-shirt', () => {
@@ -9,6 +10,7 @@ describe('Buy a t-shirt', () => {
   const productList: ProductList = new ProductList();
   const productDetail: ProductDetail = new ProductDetail();
   const productSummary: ProductSummary = new ProductSummary();
+  const proceedToCheckout: SummaryStepPage = new SummaryStepPage();
   beforeEach(() => {
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 120000;
   });
@@ -24,7 +26,7 @@ describe('Buy a t-shirt', () => {
     await(browser.sleep(3000));
     await productSummary.goToProceedButton();
     await(browser.sleep(3000));
-    await $('.cart_navigation span').click();
+    await proceedToCheckout.goToProceedToCheckout();
     await(browser.sleep(3000));
   
     await $('#email').sendKeys('aperdomobo@gmail.com');
