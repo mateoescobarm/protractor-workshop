@@ -1,11 +1,11 @@
 import { $, ElementFinder, promise } from 'protractor';
 
 export class BankPaymentPage {
-  private get bankPayment(): ElementFinder {
+  private get confirmPaymentButton(): ElementFinder {
     return $('#cart_navigation > button > span');
   }
 
   public goToConfirmationPage(): promise.Promise<void> {
-    return this.bankPayment.click();
+    return this.confirmPaymentButton.click();
   }
 }

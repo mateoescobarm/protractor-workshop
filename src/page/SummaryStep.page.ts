@@ -5,7 +5,7 @@ export class SummaryStepPage {
     return $('.cart_navigation span');
   }
 
-  public clickProceedToCheckoutButton(): promise.Promise<void> {
+  public summaryProceedToCheckout(): promise.Promise<void> {
     return this.proceedToCheckoutButton.click();
   }
 }

@@ -1,11 +1,11 @@
 import { $, ElementFinder, promise } from 'protractor';
 
 export class PaymentStepPage {
-  private get selectPaymentMetod(): ElementFinder {
+  private get bankWirePaymentOption(): ElementFinder {
     return $('#HOOK_PAYMENT > div:nth-child(1) > div > p > a');
   }
 
-  public goToBankPayment(): promise.Promise<void> {
-    return this.selectPaymentMetod.click();
+  public selectPaymentMetodBankWire(): promise.Promise<void> {
+    return this.bankWirePaymentOption.click();
   }
 }
