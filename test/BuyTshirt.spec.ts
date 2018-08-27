@@ -1,20 +1,22 @@
-import { $, browser } from 'protractor';
+import { browser } from 'protractor';
 import { MenuContentPage } from '../src/page';
 import { ProductList } from '../src/page/ProductList.page';
-import { ProductDetail, ProductSummary } from '../src/page/ProductDetail.page';
+import { ProductDetail } from '../src/page/ProductDetail.page';
 import { SummaryStepPage } from '../src/page/SummaryStep.page';
 import { SignInStepPage } from '../src/page/SignInStep.page';
 import { AdressStepPage } from '../src/page/AddressStep.page';
 import { TermsOfService, ShippingStepPage } from '../src/page/ShippingStep.page';
 import { PaymentStepPage } from '../src/page/PaymentStep.page';
 import { BankPaymentPage } from '../src/page/BankPayment.page';
+import { OrderResumePage } from '../src/page/OrderResume.page';
+import { ProductAdded } from '../src/page/ProductAddedModal.page';
 
 
 describe('Buy a t-shirt', () => {
   const menuContentPage: MenuContentPage = new MenuContentPage();
   const productList: ProductList = new ProductList();
   const productDetail: ProductDetail = new ProductDetail();
-  const productSummary: ProductSummary = new ProductSummary();
+  const productAdded: ProductAdded = new ProductAdded();
   const proceedToCheckout: SummaryStepPage = new SummaryStepPage();
   const signIn: SignInStepPage = new SignInStepPage();
   const adressProceed: AdressStepPage = new AdressStepPage();
@@ -22,6 +24,8 @@ describe('Buy a t-shirt', () => {
   const shippingStep: ShippingStepPage = new ShippingStepPage();
   const paymentStep: PaymentStepPage = new PaymentStepPage();
   const bankPayment: BankPaymentPage = new BankPaymentPage();
+  const orderResume: OrderResumePage = new OrderResumePage();
+
   beforeEach(() => {
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 120000;
   });
@@ -35,8 +39,8 @@ describe('Buy a t-shirt', () => {
     await (browser.sleep(3000));
     await productDetail.goToProductAddButton();
     await (browser.sleep(3000));
-    await productSummary.goToProceedButton();
-    await (browser.sleep(3000));
+    await productAdded.goToProceedButton();
+    await(browser.sleep(3000));
     await proceedToCheckout.goToProceedToCheckout();
     await (browser.sleep(3000));
     await signIn.goToSignIn();
@@ -51,8 +55,7 @@ describe('Buy a t-shirt', () => {
     await(browser.sleep(3000));
     await bankPayment.goToBankPayment();
     await(browser.sleep(3000));
-
-    await expect($('#center_column > div > p > strong').getText())
+    await expect(orderResume.getText())
       .toBe('Your order on My Store is complete.');
  });
 });

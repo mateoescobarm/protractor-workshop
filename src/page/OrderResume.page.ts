@@ -6,7 +6,7 @@ export class OrderResumePage {
 
   }
 
-  public goToTermsConditions(): promise.Promise<void> {
+  public getText(): promise.Promise<string> {
     return this.orderResume.getText();
   }
 }
