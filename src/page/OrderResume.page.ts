@@ -6,7 +6,7 @@ export class OrderResumePage {
 
   }
 
-  public getText(): promise.Promise<string> {
+  public getTextOfConfirmation(): promise.Promise<string> {
     return this.orderResume.getText();
   }
 }
