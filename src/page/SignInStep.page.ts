@@ -15,7 +15,6 @@ export class SignInStepPage {
     return $('#SubmitLogin > span');
   }
   public logIn(): promise.Promise<void> {
-    return this.logInForm();
-    return this.logInButton.click();
+    return this.logInForm(), this.logInButton.click();
   }
 }
