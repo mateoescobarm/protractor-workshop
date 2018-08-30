@@ -1,0 +1,12 @@
+export { MenuContentPage } from './MenuContent.page';
+export { ProductList } from './ProductList.page';
+export { ProductDetail } from './ProductDetail.page';
+export { SummaryStepPage } from './SummaryStep.page';
+export { SignInStepPage } from './SignInStep.page';
+export { AdressStepPage } from './AddressStep.page';
+export { ShippingStepPage } from './ShippingStep.page';
+export { PaymentStepPage } from './PaymentStep.page';
+export { BankPaymentPage } from './BankPayment.page';
+export { OrderResumePage } from './OrderResume.page';
+export { ProductAdded } from './ProductAddedModal.page';
+export { TermsOfServiceCheckBox } from './CheckBoxTermsOfService.page'
