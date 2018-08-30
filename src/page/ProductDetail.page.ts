@@ -1,8 +1,8 @@
-import { $, ElementFinder, promise, browser } from 'protractor';
+import { ElementFinder, promise, element, by } from 'protractor';
 
 export class ProductDetail {
   private get addToCartButton(): ElementFinder {
-    return $('#add_to_cart > button > span');
+    return element(by.buttonText('Add to cart'));
   }
   public addToCart(): promise.Promise<void> {
     return this.addToCartButton.click();
