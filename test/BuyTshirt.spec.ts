@@ -1,4 +1,4 @@
-import { browser, ExpectedConditions } from 'protractor';
+import { browser } from 'protractor';
 import { MenuContentPage,
          ProductList,
          ProductDetail,
