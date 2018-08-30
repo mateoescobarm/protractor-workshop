@@ -7,14 +7,12 @@ export class SignInStepPage {
   private get passwordField(): ElementFinder {
     return $('#passwd');
   }
-  private async logInForm() {
-    await this.userNameField.sendKeys('aperdomobo@gmail.com');
-    await this.passwordField.sendKeys('WorkshopProtractor');
-  }
   private get logInButton(): ElementFinder {
     return $('#SubmitLogin > span');
   }
-  public logIn(): promise.Promise<void> {
+  private async logInForm() {
+    await this.userNameField.sendKeys('aperdomobo@gmail.com');
+    await this.passwordField.sendKeys('WorkshopProtractor');
     return this.logInButton.click();
   }
   public fillForm(): promise.Promise<void> {
