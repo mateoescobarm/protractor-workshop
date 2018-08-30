@@ -1,4 +1,4 @@
-import { browser } from 'protractor';
+import { browser, ExpectedConditions } from 'protractor';
 import { MenuContentPage,
          ProductList,
          ProductDetail,
@@ -31,6 +31,7 @@ describe('Buy a t-shirt', () => {
     await menuContentPage.goToTShirtMenu();
     await productList.selecProduct();
     await productDetail.addToCart();
+    await (browser.sleep(3000));
     await productAdded.proceedToCheckout();
     await proceedToCheckout.summaryProceedToCheckout();
     await signIn.fillForm();
