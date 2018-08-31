@@ -1,8 +1,8 @@
-import { $, ElementFinder, promise } from 'protractor';
+import { ElementFinder, promise, element, by } from 'protractor';
 
 export class ProductList {
   private get productList(): ElementFinder {
-    return $('#center_column > ul > li > div > div.left-block > div > a.product_img_link > img');
+    return element(by.className('product_img_link'));
   }
 
   public selecProduct(): promise.Promise<void> {
