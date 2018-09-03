@@ -25,7 +25,6 @@
   "homepage": "https://github.com/mateoescobarm/protractor-workshop#readme",
   "dependencies": {
     "jasmine-spec-reporter": "^4.2.1",
-    "node": "^8.11.4",
     "npm": "^6.4.0",
     "protractor": "^5.4.0"
   },
