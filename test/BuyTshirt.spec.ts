@@ -28,7 +28,7 @@ describe('open browser', () =>{
 
     beforeEach(async () => {
       await menuContentPage.goToTShirtMenu();
-      await productList.selecProduct();
+      await productList.selecProduct('name');
       await productDetail.addToCart();
       await productAdded.proceedToCheckout();
       await proceedToCheckout.summaryProceedToCheckout();
