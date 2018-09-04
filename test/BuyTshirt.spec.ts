@@ -26,9 +26,11 @@ describe('open browser', () =>{
     const productAdded: ProductAdded = new ProductAdded();
     const proceedToCheckout: SummaryStepPage = new SummaryStepPage();
 
+    const name = 'Faded Short Sleeve T-shirts';
+
     beforeEach(async () => {
       await menuContentPage.goToTShirtMenu();
-      await productList.selecProduct();
+      await productList.selectProduct(name);
       await productDetail.addToCart();
       await productAdded.proceedToCheckout();
       await proceedToCheckout.summaryProceedToCheckout();
