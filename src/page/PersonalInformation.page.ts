@@ -174,4 +174,7 @@ export class FillPersonalInformationPage {
     return this.logInForm(this.alejandro);
   }
 };
+<<<<<<< HEAD
 >>>>>>> personal info fill form test
+=======
+>>>>>>> endline 2
