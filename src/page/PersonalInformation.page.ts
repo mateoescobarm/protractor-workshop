@@ -118,4 +118,8 @@ export class FillPersonalInformationPage {
   public fillForm(): promise.Promise<void> {
     return this.logInForm(this.alejandro);
   }
+<<<<<<< HEAD
 }
+=======
+};
+>>>>>>> endline 2
