@@ -33,5 +33,9 @@ describe('open browser', () =>{
 });
 =======
   });
+<<<<<<< HEAD
 })
 >>>>>>> personal info fill form test
+=======
+});
+>>>>>>> end line
