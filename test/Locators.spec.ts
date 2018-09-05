@@ -1,4 +1,8 @@
 import { browser } from 'protractor';
+<<<<<<< HEAD
+=======
+import { async } from 'q';
+>>>>>>> personal info fill form test
 import { FillPersonalInformationPage } from '../src/page/PersonalInformation.page';
 
 describe('open browser', () =>{
@@ -13,6 +17,7 @@ describe('open browser', () =>{
     beforeEach(async () =>{
       await personalInfo.fillForm();
     });
+<<<<<<< HEAD
 
     describe('confirmation step', () => {  
       it('Form Correctly Filled', async () => {
@@ -22,3 +27,7 @@ describe('open browser', () =>{
     });
   });
 });
+=======
+  });
+})
+>>>>>>> personal info fill form test
