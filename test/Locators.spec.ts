@@ -1,8 +1,11 @@
 import { browser } from 'protractor';
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import { async } from 'q';
 >>>>>>> personal info fill form test
+=======
+>>>>>>> info test update
 import { FillPersonalInformationPage } from '../src/page/PersonalInformation.page';
 
 describe('open browser', () =>{
@@ -16,6 +19,7 @@ describe('open browser', () =>{
 
     beforeEach(async () =>{
       await personalInfo.fillForm();
+      await browser.sleep(5000);
     });
 <<<<<<< HEAD
 
