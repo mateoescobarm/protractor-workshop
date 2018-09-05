@@ -1,11 +1,4 @@
 import { browser } from 'protractor';
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-import { async } from 'q';
->>>>>>> personal info fill form test
-=======
->>>>>>> info test update
 import { FillPersonalInformationPage } from '../src/page/PersonalInformation.page';
 
 describe('open browser', () =>{
@@ -21,17 +14,5 @@ describe('open browser', () =>{
       await personalInfo.fillForm();
       await browser.sleep(5000);
     });
-<<<<<<< HEAD
-
-    describe('confirmation step', () => {  
-      it('Form Correctly Filled', async () => {
-        await expect(browser.getCurrentUrl())
-          .toBe('http://toolsqa.com/automation-practice-form/?firstname=Alejandro&lastname=Perdomo&sex=Male&exp=7&profession=Automation+Tester&photo=&tool=Selenium+Webdriver&continents=South+America&submit=');
-      });
-    });
   });
 });
-=======
-  });
-})
->>>>>>> personal info fill form test
