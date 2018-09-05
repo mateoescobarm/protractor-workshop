@@ -15,4 +15,4 @@ describe('open browser', () =>{
       await browser.sleep(5000);
     });
   });
-})
+});
