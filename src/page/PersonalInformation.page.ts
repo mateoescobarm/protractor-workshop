@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 import {
   ElementFinder,
@@ -93,31 +94,31 @@ export class FillPersonalInformationPage {
   private alejandro = {
 =======
 import { ElementFinder, promise, $ } from 'protractor';
+=======
+import { ElementFinder, promise, $, element, by } from 'protractor';
+>>>>>>> fixed stuff
 
 export class FillPersonalInformationPage {
   private get firstNameField(): ElementFinder {
-    return $('fisrt name');
+    return element(by.name('firstname'));
   }
   private get lastNameField(): ElementFinder {
-    return $('last name');
+    return element(by.name('lastname'));
   }
   private get sexCheckBox(): ElementFinder {
-    return $('sex-0');
+    return $('#sex-0');
   }
   private get experienceCheckBox(): ElementFinder {
-    return $('exp-6');
+    return $('#exp-6');
   }
   private get professionCheckBox(): ElementFinder {
-    return $('profession-1');
+    return $('#profession-1');
   }
   private get toolsCheckBox(): ElementFinder {
-    return $('tool-6');
+    return $('#tool-2');
   }
   private get continentSelector(): ElementFinder {
     return $('#continents');
-  }
-  private get commandsSelector(): ElementFinder {
-    return $('#selenium_comands');
   }
   private get submitButton(): ElementFinder {
     return $('#submit');
@@ -162,12 +163,11 @@ export class FillPersonalInformationPage {
   private async logInForm(personalInfo) {
     await this.firstNameField.sendKeys(personalInfo.firstName);
     await this.lastNameField.sendKeys(personalInfo.lastName);
-    await this.sexCheckBox.sendKeys(personalInfo.sex);
-    await this.experienceCheckBox.sendKeys(personalInfo.experience);
-    await this.professionCheckBox.sendKeys(personalInfo.profession);
-    await this.toolsCheckBox.sendKeys(personalInfo.tools);
+    await this.sexCheckBox.click();
+    await this.experienceCheckBox.click();
+    await this.professionCheckBox.click();
+    await this.toolsCheckBox.click();
     await this.continentSelector.sendKeys(personalInfo.continent);
-    await this.commandsSelector.sendKeys(personalInfo.commands);
     return this.submitButton.click();
   }
   public fillForm(): promise.Promise<void> {
