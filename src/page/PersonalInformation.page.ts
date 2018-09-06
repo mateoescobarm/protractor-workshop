@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {
   ElementFinder,
   promise,
@@ -7,6 +8,9 @@ import {
   $$,
   ElementArrayFinder
 } from 'protractor';
+=======
+import { ElementFinder, promise, $, element, by } from 'protractor';
+>>>>>>> fixed stuff
 
 export class FillPersonalInformationPage {
   private get firstNameField(): ElementFinder {
@@ -15,6 +19,7 @@ export class FillPersonalInformationPage {
 
   private get lastNameField(): ElementFinder {
     return element(by.name('lastname'));
+<<<<<<< HEAD
   }
 
   private get sexInfo(): ElementArrayFinder {
@@ -65,11 +70,26 @@ export class FillPersonalInformationPage {
         await toolsElement.click();
       };
     });
+=======
+  }
+  private get sexCheckBox(): ElementFinder {
+    return $('#sex-0');
+  }
+  private get experienceCheckBox(): ElementFinder {
+    return $('#exp-6');
+  }
+  private get professionCheckBox(): ElementFinder {
+    return $('#profession-1');
+  }
+  private get toolsCheckBox(): ElementFinder {
+    return $('#tool-2');
+>>>>>>> fixed stuff
   }
 
   private get continentDropdown(): ElementFinder {
     return $('#continents');
   }
+<<<<<<< HEAD
 
   private get continentDropdownOptions(): ElementArrayFinder {
     return this.continentDropdown.$$('option')
@@ -84,6 +104,8 @@ export class FillPersonalInformationPage {
     }).first().click();
   }
 
+=======
+>>>>>>> fixed stuff
   private get submitButton(): ElementFinder {
     return $('#submit');
   }
@@ -104,6 +126,7 @@ export class FillPersonalInformationPage {
       'WebElement Commands']
   };
 
+<<<<<<< HEAD
   private async logInForm(personInfo) {
     await this.firstNameField.sendKeys(personInfo.firstName);
     await this.lastNameField.sendKeys(personInfo.lastName);
@@ -112,6 +135,16 @@ export class FillPersonalInformationPage {
     await this.professionAttribute(personInfo.profession);
     await this.toolAttribute(personInfo.tools);
     await this.selectContinentOption(personInfo.continent);
+=======
+  private async logInForm(personalInfo) {
+    await this.firstNameField.sendKeys(personalInfo.firstName);
+    await this.lastNameField.sendKeys(personalInfo.lastName);
+    await this.sexCheckBox.click();
+    await this.experienceCheckBox.click();
+    await this.professionCheckBox.click();
+    await this.toolsCheckBox.click();
+    await this.continentSelector.sendKeys(personalInfo.continent);
+>>>>>>> fixed stuff
     return this.submitButton.click();
   }
 
