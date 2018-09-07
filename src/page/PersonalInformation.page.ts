@@ -105,56 +105,67 @@ import { ElementFinder, promise, $, element, by, $$, ElementArrayFinder } from '
 export class FillPersonalInformationPage {
   private get firstNameField(): ElementFinder {
     return element(by.name('firstname'));
-  }
+  };
+
   private get lastNameField(): ElementFinder {
     return element(by.name('lastname'));
-  }
+  };
+
   private get sexInfo(): ElementArrayFinder {
     return $$('[name="sex"]');
-  }
+  };
+
   private sexAttribute(sex: string): ElementFinder {
     return this.sexInfo.filter((sexType) => {
       return sexType.getAttribute('value').then((attribute) => {
         return attribute === sex;
-      })
+      });
     }).first();
-  }
+  };
+
   private get experienceInfo(): ElementArrayFinder {
     return $$('[name="exp"]');
-  }
+  };
+
   private experienceAttribute(experience: string): ElementFinder {
     return this.experienceInfo.filter((yearsOfExperience) => {
       return yearsOfExperience.getAttribute('value').then((attribute) => {
         return attribute === experience;
-      })
+      });
     }).first();
-  }
+  };
+
   private get professionInfo(): ElementArrayFinder {
     return $$('[name="profession"]');
-  }
-  private professionAttribute(profession: string): ElementFinder {
-    return this.professionInfo.filter((professiontype) => {
-      return professiontype.getAttribute('value').then((attribute) => {
+  };
+
+  private professionAttribute(profession: Array): ArrayConstructor {
+    return this.professionInfo.array.forEach(element => {
+      return element.getAttribute('value').then((attribute) => {
         return attribute === profession;
-      })
-    }).first();
-  }
+      });
+    });
+  };
+
   private get toolInfo(): ElementArrayFinder {
-    return $$('[name="profession"]');
-  }
+    return $$('[name="tool"]');
+  };
+
   private toolAttribute(tool: string): ElementFinder {
-    return this.toolInfo.filter((tooltype) => {
-      return tooltype.getAttribute('value').then((attribute) => {
+    return this.toolInfo.array.forEach(element => {
+      return element.getAttribute('value').then((attribute) => {
         return attribute === tool;
-      })
-    }).first();
-  }
+      });
+    });
+  };
+
   private get continentSelector(): ElementFinder {
     return $('#continents');
-  }
+  };
+
   private get submitButton(): ElementFinder {
     return $('#submit');
-  }
+  };
 
   alejandro = {
 >>>>>>> personal info fill form test
@@ -171,6 +182,7 @@ export class FillPersonalInformationPage {
       'Switch Commands',
       'Wait Commands',
       'WebElement Commands']
+<<<<<<< HEAD
 <<<<<<< HEAD
   };
 
@@ -191,6 +203,9 @@ export class FillPersonalInformationPage {
 }
 =======
   }
+=======
+  };
+>>>>>>> exp ok fixin arrays
 
   private async logInForm(personInfo) {
     await this.firstNameField.sendKeys(personInfo.firstName);
@@ -201,10 +216,11 @@ export class FillPersonalInformationPage {
     await this.toolAttribute(personInfo.tools).click();
     await this.continentSelector.sendKeys(personInfo.continent);
     return this.submitButton.click();
-  }
+  };
+
   public fillForm(): promise.Promise<void> {
     return this.logInForm(this.alejandro);
-  }
+  };
 };
 <<<<<<< HEAD
 >>>>>>> personal info fill form test
