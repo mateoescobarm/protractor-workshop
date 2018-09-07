@@ -139,11 +139,12 @@ export class FillPersonalInformationPage {
     return $$('[name="profession"]');
   };
 
-  private professionAttribute(profession: Array): ArrayConstructor {
-    return this.professionInfo.array.forEach(element => {
-      return element.getAttribute('value').then((attribute) => {
-        return attribute === profession;
-      });
+  private async professionAttribute(profession: string[]): Promise<void>{
+    await this.professionInfo.forEach(async (professionElement) => {
+      let professionElementValue = await professionElement.getAttribute('value');
+      if (profession['any'].includes(professionElementValue)) {
+        await professionElement.click();
+      };
     });
   };
 
@@ -212,7 +213,7 @@ export class FillPersonalInformationPage {
     await this.lastNameField.sendKeys(personInfo.lastName);
     await this.sexAttribute(personInfo.sex).click();
     await this.experienceAttribute(personInfo.experience).click();
-    await this.professionAttribute(personInfo.profession).click();
+    await this.professionAttribute(personInfo.profession);
     await this.toolAttribute(personInfo.tools).click();
     await this.continentSelector.sendKeys(personInfo.continent);
     return this.submitButton.click();
