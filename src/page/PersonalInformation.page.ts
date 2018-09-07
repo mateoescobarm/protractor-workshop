@@ -130,7 +130,7 @@ export class FillPersonalInformationPage {
     }).first();
   }
   private get professionInfo(): ElementArrayFinder {
-    return $$('[name="exp"]');
+    return $$('[name="profession"]');
   }
   private professionAttribute(profession: string): ElementFinder {
     return this.professionInfo.filter((professiontype) => {
@@ -139,8 +139,15 @@ export class FillPersonalInformationPage {
       })
     }).first();
   }
-  private get toolsCheckBox(): ElementFinder {
-    return $('#tool-2');
+  private get toolInfo(): ElementArrayFinder {
+    return $$('[name="profession"]');
+  }
+  private toolAttribute(tool: string): ElementFinder {
+    return this.toolInfo.filter((tooltype) => {
+      return tooltype.getAttribute('value').then((attribute) => {
+        return attribute === tool;
+      })
+    }).first();
   }
   private get continentSelector(): ElementFinder {
     return $('#continents');
@@ -185,14 +192,14 @@ export class FillPersonalInformationPage {
 =======
   }
 
-  private async logInForm(personalInfo) {
-    await this.firstNameField.sendKeys(personalInfo.firstName);
-    await this.lastNameField.sendKeys(personalInfo.lastName);
-    await this.sexAttribute(personalInfo.sex).click();
-    await this.experienceAttribute(personalInfo.experience).click();
-    await this.professionAttribute(personalInfo.profession).click();
-    await this.toolsCheckBox.click();
-    await this.continentSelector.sendKeys(personalInfo.continent);
+  private async logInForm(personInfo) {
+    await this.firstNameField.sendKeys(personInfo.firstName);
+    await this.lastNameField.sendKeys(personInfo.lastName);
+    await this.sexAttribute(personInfo.sex).click();
+    await this.experienceAttribute(personInfo.experience).click();
+    await this.professionAttribute(personInfo.profession).click();
+    await this.toolAttribute(personInfo.tools).click();
+    await this.continentSelector.sendKeys(personInfo.continent);
     return this.submitButton.click();
   }
   public fillForm(): promise.Promise<void> {
