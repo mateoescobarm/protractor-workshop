@@ -1,17 +1,25 @@
-import { ElementFinder, promise, $, element, by, $$, ElementArrayFinder } from 'protractor';
+import {
+  ElementFinder,
+  promise,
+  $,
+  element,
+  by,
+  $$,
+  ElementArrayFinder
+} from 'protractor';
 
 export class FillPersonalInformationPage {
   private get firstNameField(): ElementFinder {
     return element(by.name('firstname'));
-  };
+  }
 
   private get lastNameField(): ElementFinder {
     return element(by.name('lastname'));
-  };
+  }
 
   private get sexInfo(): ElementArrayFinder {
     return $$('[name="sex"]');
-  };
+  }
 
   private sexAttribute(sex: string): ElementFinder {
     return this.sexInfo.filter((sexType) => {
@@ -19,11 +27,11 @@ export class FillPersonalInformationPage {
         return attribute === sex;
       });
     }).first();
-  };
+  }
 
   private get experienceInfo(): ElementArrayFinder {
     return $$('[name="exp"]');
-  };
+  }
 
   private experienceAttribute(experience: string): ElementFinder {
     return this.experienceInfo.filter((yearsOfExperience) => {
@@ -31,42 +39,56 @@ export class FillPersonalInformationPage {
         return attribute === experience;
       });
     }).first();
-  };
+  }
 
   private get professionInfo(): ElementArrayFinder {
     return $$('[name="profession"]');
-  };
+  }
 
   private async professionAttribute(profession: string[]): Promise<void>{
-    await this.professionInfo.forEach(async (professionElement) => {
+    await this.professionInfo.each(async (professionElement) => {
       let professionElementValue = await professionElement.getAttribute('value');
-      if (profession['any'].includes(professionElementValue)) {
+      if (profession.indexOf(professionElementValue)!==-1) {
         await professionElement.click();
       };
     });
-  };
+  }
 
   private get toolInfo(): ElementArrayFinder {
     return $$('[name="tool"]');
-  };
+  }
 
-  private toolAttribute(tool: string): ElementFinder {
-    return this.toolInfo.array.forEach(element => {
-      return element.getAttribute('value').then((attribute) => {
-        return attribute === tool;
-      });
+  private async toolAttribute(tools: string[]): Promise<void> {
+    await this.toolInfo.each(async (toolsElement) => {
+      let toolsElementValue = await toolsElement.getAttribute('value');
+      if (tools.indexOf(toolsElementValue)!==-1) {
+        await toolsElement.click();
+      };
     });
-  };
+  }
 
-  private get continentSelector(): ElementFinder {
+  private get continentDropdown(): ElementFinder {
     return $('#continents');
-  };
+  }
+
+  private get continentDropdownOptions(): ElementArrayFinder {
+    return this.continentDropdown.$$('option')
+  }
+
+  private async selectContinentOption(continent: string): Promise<void> {
+    await this.continentDropdown.click();
+    await this.continentDropdownOptions.filter((continentco) => {
+      return continentco.getAttribute('value').then((attribute) => {
+        return attribute === continent;
+      });
+    }).first().click();
+  }
 
   private get submitButton(): ElementFinder {
     return $('#submit');
-  };
+  }
 
-  alejandro = {
+  private alejandro = {
     firstName: 'Alejandro',
     lastName: 'Perdomo',
     sex: 'Male',
@@ -88,12 +110,12 @@ export class FillPersonalInformationPage {
     await this.sexAttribute(personInfo.sex).click();
     await this.experienceAttribute(personInfo.experience).click();
     await this.professionAttribute(personInfo.profession);
-    await this.toolAttribute(personInfo.tools).click();
-    await this.continentSelector.sendKeys(personInfo.continent);
+    await this.toolAttribute(personInfo.tools);
+    await this.selectContinentOption(personInfo.continent);
     return this.submitButton.click();
-  };
+  }
 
   public fillForm(): promise.Promise<void> {
     return this.logInForm(this.alejandro);
-  };
-};
+  }
+}
