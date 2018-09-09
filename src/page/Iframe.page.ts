@@ -2,7 +2,7 @@ import { ElementFinder, $, promise } from 'protractor';
 
 export class IFramePage {
   private get pageName (): ElementFinder {
-    return $('h1');
+    return $('.page-title h1');
   }
 
   public goToIFrameOne (): promise.Promise<void> {
