@@ -22,15 +22,15 @@ describe('open browser', () =>{
       .toBe('IFrame practice page');
     });
 
-    describe('checking iframe title', () =>{
-      beforeEach(async () => {
-        await checkingGlobalName.goToIFrameOne();
-      });
-  
-      it('Iframe name Check', () => {
-        expect(checkingGlobalName.getIFrameTitle())
-          .toBe('Practice Automation Form');
-      });  
-    });   
+  describe('checking iframe title', () =>{
+    beforeAll(async () => {
+      await checkingGlobalName.goToIFrameOne();
+    });
+
+    it('Iframe name Check', () => {
+      expect(checkingGlobalName.getIFrameTitle())
+        .toBe('Practice Automation Form');
+    });  
+  });   
   });
 });
