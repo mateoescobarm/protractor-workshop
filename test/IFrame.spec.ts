@@ -17,9 +17,20 @@ describe('open browser', () =>{
   describe('checking global title', () => {
     const checkingGlobalName: IFramePage = new IFramePage ();
 
-    it('First Global Name Check', async () => {
-      await expect(checkingGlobalName.globalPageName())
-      .toBe('IFrame practice page')
+    it('checking global title', async () => {
+      expect(checkingGlobalName.globalPageName())
+      .toBe('IFrame practice page');
     });
+
+    describe('checking iframe title', () =>{
+      beforeEach(async () => {
+        await checkingGlobalName.goToIFrameOne();
+      });
+  
+      it('Iframe name Check', () => {
+        expect(checkingGlobalName.getIFrameTitle())
+          .toBe('Practice Automation Form');
+      });  
+    });   
   });
 });
