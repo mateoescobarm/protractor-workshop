@@ -5,6 +5,7 @@ import {
 import {
   IFramePage
 } from '../src/page/Iframe.page';
+import { async } from 'q';
 
 describe('open browser', () =>{
 
@@ -18,19 +19,42 @@ describe('open browser', () =>{
     const checkingGlobalName: IFramePage = new IFramePage ();
 
     it('checking global title', async () => {
-      expect(checkingGlobalName.globalPageName())
+      expect(checkingGlobalName.getPageName())
       .toBe('IFrame practice page');
     });
 
-  describe('checking iframe title', () =>{
-    beforeAll(async () => {
-      await checkingGlobalName.goToIFrameOne();
-    });
+    describe('checking iframe title', () =>{
+      beforeAll(async () => {
+        await checkingGlobalName.goToIFrameOne();
+      });
 
-    it('Iframe name Check', () => {
-      expect(checkingGlobalName.getIFrameTitle())
-        .toBe('Practice Automation Form');
-    });  
-  });   
+      it('Iframe name Check',async () => {
+        expect(checkingGlobalName.getPageName())
+          .toBe('Practice Automation Form');
+      });
+
+      describe('return to globla and check name', () =>{
+        beforeAll(async () =>{
+          await checkingGlobalName.returnToGlobalpage();
+        });
+
+        it('return to global page  check', async () =>{
+          expect(checkingGlobalName.getPageName())
+            .toBe('IFrame practice page');
+        });
+
+        describe('change iframe height', () =>{
+          const newHeight = '1000px';
+
+          beforeAll(async () =>{
+            await checkingGlobalName.changIFrameHeight(newHeight);
+          });
+
+          it('checking new height', async () =>{
+            expect 
+          })
+        })
+      });
+    });
   });
 });
