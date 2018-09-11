@@ -5,7 +5,6 @@ import {
 import {
   IFramePage
 } from '../src/page/Iframe.page';
-import { async } from 'q';
 
 describe('open browser', () =>{
 
@@ -51,9 +50,9 @@ describe('open browser', () =>{
           });
 
           it('checking new height', async () =>{
-            expect 
-          })
-        })
+            expect(checkingGlobalName.iFrameHeight).toBe(newHeight);
+          });
+        });
       });
     });
   });
