@@ -13,6 +13,10 @@ export class IFramePage {
     return this.getIFrame.getAttribute('height');
   }
 
+  public async changIFrameHeight (newHeight: string): Promise<void> {
+    await browser.executeScript(`document.getElementById('IF1').style.height = '${newHeight}';`);
+  }
+
   public getPageName (): promise.Promise<string> {
     return this.pageName.getText();
   }
@@ -24,10 +28,5 @@ export class IFramePage {
   public returnToGlobalpage (): promise.Promise<void> {
     return browser.switchTo().defaultContent();
   }
-
-  public async changIFrameHeight (newHeight: string): Promise<void> {
-    await browser.executeScript(`document.getElementById('IF1').style.height = '${newHeight}';`);
-  }
-
 }
 
