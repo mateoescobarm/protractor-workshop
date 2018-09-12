@@ -50,7 +50,7 @@ describe('open browser', () =>{
           });
 
           it('checking new height', async () =>{
-            expect(checkingGlobalName.iFrameHeight).toBe(newHeight);
+            expect(checkingGlobalName.getIFrameHeight).toBe(newHeight);
           });
 
           browser.sleep(10000);

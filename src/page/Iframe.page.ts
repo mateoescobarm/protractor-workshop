@@ -9,7 +9,7 @@ export class IFramePage {
     return $('#IF1');
   }
 
-  public get iFrameHeight(): promise.Promise<string> {
+  public get getIFrameHeight(): promise.Promise<string> {
     return this.IFrame.getAttribute('height');
   }
 
