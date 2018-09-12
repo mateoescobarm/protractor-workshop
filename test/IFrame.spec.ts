@@ -31,6 +31,7 @@ describe('open browser', () =>{
     describe('checking iframe title', () =>{
       beforeAll(async () => {
         await iFramePage.goToIFrameOne();
+        pageTitle = await iFramePage.getPageName();
       });
 
       it('Iframe name Check',async () => {
@@ -41,6 +42,7 @@ describe('open browser', () =>{
       describe('return to globla and check name', () =>{
         beforeAll(async () =>{
           await iFramePage.returnToGlobalpage();
+          pageTitle = await iFramePage.getPageName();
         });
 
         it('return to global page  check', async () =>{
