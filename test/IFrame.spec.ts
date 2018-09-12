@@ -41,7 +41,6 @@ describe('open browser', () => {
       describe('return to globla and check name', () => {
         beforeAll(async () => {
           await iFramePage.returnToGlobalpage();
-          browser.sleep(3000);
           pageTitle = await iFramePage.getPageName();
         });
 
