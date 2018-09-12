@@ -15,7 +15,7 @@ export class IFramePage {
 
   public async changeIFrameHeight (newHeight: string): Promise<void> {
     await browser.executeScript(`document.getElementById('IF1').style.height = '${newHeight}';`);
-    await browser.executeScript(`document.getElementById('IF1').style.width = '2000';`);
+    await browser.executeScript(`document.getElementById('IF1').style.width = '2000px';`);
   }
 
   public getPageName (): promise.Promise<string> {
