@@ -36,7 +36,7 @@ describe('open browser', () => {
 
       it('Iframe name Check', async () => {
         expect(iFrameTitle)
-          .toBe('Automation Practice Form');
+          .toBe('Practice Automation Form');
       });
 
       describe('return to globla and check name', () => {
