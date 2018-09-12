@@ -18,7 +18,7 @@ describe('open browser', () =>{
     const iFramePage: IFramePage = new IFramePage ();
     let pageTitle: string;
 
-    beforeEach(async () => {
+    beforeAll(async () => {
       pageTitle = await iFramePage.getPageName();
     })
     
