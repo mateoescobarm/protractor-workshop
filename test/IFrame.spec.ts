@@ -28,25 +28,25 @@ describe('open browser', () => {
     });
 
     describe('checking iframe title', () => {
+      let iFrameTitle: string;
       beforeAll(async () => {
         await iFramePage.goToIFrameOne();
-        pageTitle = await iFramePage.getPageName();
+        iFrameTitle = await iFramePage.getIFrameTitle();
       });
 
       it('Iframe name Check', async () => {
-        expect(pageTitle)
-          .toBe('Automation Practice Form');
+        expect(iFrameTitle)
+          .toBe('Practice Automation Form');
       });
 
       describe('return to globla and check name', () => {
-        let iFrameTitle: string;
         beforeAll(async () => {
           await iFramePage.returnToGlobalpage();
-          iFrameTitle = await iFramePage.getIFrameTitle();
+          pageTitle = await iFramePage.getPageName();
         });
 
         it('return to global page  check', async () => {
-          expect(iFrameTitle)
+          expect(pageTitle)
             .toBe('IFrame practice page');
         });
 
