@@ -43,15 +43,17 @@ describe('open browser', () =>{
         });
 
         describe('change iframe height', () =>{
-          const newHeight = '1000px';
+          const newHeight = '2000px';
 
           beforeAll(async () =>{
-            await checkingGlobalName.changIFrameHeight(newHeight);
+            await checkingGlobalName.changeIFrameHeight(newHeight);
           });
 
           it('checking new height', async () =>{
             expect(checkingGlobalName.iFrameHeight).toBe(newHeight);
           });
+
+          browser.sleep(10000);
         });
       });
     });
