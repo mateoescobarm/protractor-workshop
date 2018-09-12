@@ -6,7 +6,7 @@ import {
   IFramePage
 } from '../src/page/Iframe.page';
 
-describe('open browser', () =>{
+describe('open browser', () => {
 
   beforeAll(async () => {
     await browser.get(
@@ -15,18 +15,17 @@ describe('open browser', () =>{
   });
 
   describe('checking global title', () => {
-    const iFramePage: IFramePage = new IFramePage ();
+    const iFramePage: IFramePage = new IFramePage();
     let pageTitle: string;
 
     beforeAll(async () => {
       pageTitle = await iFramePage.getPageName();
-    })
-    
+    });
 
     it('checking global title', async () => {
       expect(pageTitle)
-      .toBe('IFrame practice page')
-    });  
+      .toBe('IFrame practice page');
+    });
 
     describe('checking iframe title', () => {
       beforeAll(async () => {
@@ -34,13 +33,13 @@ describe('open browser', () =>{
         pageTitle = await iFramePage.getPageName();
       });
 
-      it('Iframe name Check',async () => {
+      it('Iframe name Check', async () => {
         expect(pageTitle)
           .toBe('Automation Practice Form');
       });
 
       describe('return to globla and check name', () => {
-        beforeAll(async () =>{
+        beforeAll(async () => {
           await iFramePage.returnToGlobalpage();
           browser.sleep(3000);
           pageTitle = await iFramePage.getPageName();
@@ -52,7 +51,7 @@ describe('open browser', () =>{
         });
 
         describe('change iframe height', () => {
-          let newHeight = '100px';
+          const newHeight = '100px';
           let actualIFrameHeight;
 
           beforeAll(async () => {
