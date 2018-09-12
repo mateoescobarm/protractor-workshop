@@ -1,4 +1,4 @@
-import { ElementFinder, $, promise, browser, ExpectedConditions } from 'protractor';
+import { ElementFinder, $, promise, browser } from 'protractor';
 
 export class IFramePage {
   private get pageName (): ElementFinder {
@@ -13,7 +13,11 @@ export class IFramePage {
     return $('.content h1');
   }
 
-  public getIFrameTitle() {
+  public async getIFrameTitle() {
+    await browser.wait(async () => {
+      const iFrameTitleText = await this.iFrameTitle.getText();
+      return iFrameTitleText !== '';
+    });
     return this.iFrameTitle.getText();
   }
 
@@ -30,8 +34,7 @@ export class IFramePage {
     return this.pageName.getText();
   }
 
-  public async goToIFrameOne (): Promise<void> {
-    await browser.wait(ExpectedConditions.presenceOf(this.iFrame));
+  public goToIFrameOne (): Promise<void> {
     return browser.switchTo().frame(this.iFrame.getWebElement());
   }
 
