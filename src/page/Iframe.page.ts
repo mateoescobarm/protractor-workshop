@@ -9,11 +9,11 @@ export class IFramePage {
     return $('#IF1');
   }
 
-  public getIFrameHeight(): promise.Promise<string> {
-    return this.iFrame.getAttribute('height');
+  public get getIFrameHeight(): promise.Promise<string> {
+    return this.iFrame.getCssValue('height');
   }
 
-  public async changeIFrameHeight (newHeight: number): Promise<void> {
+  public async changeIFrameHeight (newHeight: string): Promise<void> {
     await browser.executeScript(`document.getElementById('IF1').style.height = '${newHeight}';`);
   }
 

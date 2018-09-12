@@ -8,7 +8,7 @@ import {
 
 describe('open browser', () =>{
 
-  beforeEach(async () => {
+  beforeAll(async () => {
     await browser.get(
       'http://toolsqa.com/iframe-practice-page/'
     );
@@ -17,8 +17,8 @@ describe('open browser', () =>{
   describe('checking global title', () => {
     const iFramePage: IFramePage = new IFramePage ();
     let pageTitle: string;
-    
-    beforeAll(async () => {
+
+    beforeEach(async () => {
       pageTitle = await iFramePage.getPageName();
     })
     
@@ -35,7 +35,7 @@ describe('open browser', () =>{
 
       it('Iframe name Check',async () => {
         expect(pageTitle)
-          .toBe('Practice Automation Form');
+          .toBe('Automation Practice Form');
       });
 
       describe('return to globla and check name', () =>{
@@ -49,15 +49,15 @@ describe('open browser', () =>{
         });
 
         describe('change iframe height', () =>{
-          const newHeight = 2000;
+          let newHeight = '100px';
           let actualIFrameHeight;
 
           beforeAll(async () =>{
-            actualIFrameHeight = await iFramePage.getIFrameHeight;
             await iFramePage.changeIFrameHeight(newHeight);
+            actualIFrameHeight = await iFramePage.getIFrameHeight;
           });
 
-          it('checking new height', async () =>{
+          it(`checking height to ${newHeight}`, () =>{
             expect(actualIFrameHeight).toBe(newHeight);
           });
         });
