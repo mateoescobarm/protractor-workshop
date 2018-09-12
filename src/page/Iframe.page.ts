@@ -5,15 +5,15 @@ export class IFramePage {
     return $('.page-title h1');
   }
 
-  private get IFrame (): ElementFinder {
+  private get iFrame (): ElementFinder {
     return $('#IF1');
   }
 
-  public get getIFrameHeight(): promise.Promise<string> {
-    return this.IFrame.getAttribute('height');
+  public getIFrameHeight(): promise.Promise<string> {
+    return this.iFrame.getAttribute('height');
   }
 
-  public async changeIFrameHeight (newHeight: string): Promise<void> {
+  public async changeIFrameHeight (newHeight: number): Promise<void> {
     await browser.executeScript(`document.getElementById('IF1').style.height = '${newHeight}';`);
   }
 
@@ -22,11 +22,10 @@ export class IFramePage {
   }
 
   public goToIFrameOne (): promise.Promise<void> {
-    return browser.switchTo().frame(this.IFrame.getWebElement());
+    return browser.switchTo().frame(this.iFrame.getWebElement());
   }
 
   public returnToGlobalpage (): promise.Promise<void> {
     return browser.switchTo().defaultContent();
   }
 }
-
