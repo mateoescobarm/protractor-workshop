@@ -45,12 +45,12 @@ export class FillPersonalInformationPage {
     return $$('[name="profession"]');
   }
 
-  private async professionAttribute(profession: string[]): Promise<void>{
+  private async professionAttribute(profession: string[]): Promise<void> {
     await this.professionInfo.each(async (professionElement) => {
-      let professionElementValue = await professionElement.getAttribute('value');
-      if (profession.indexOf(professionElementValue)!==-1) {
+      const professionElementValue = await professionElement.getAttribute('value');
+      if (profession.indexOf(professionElementValue) !== -1) {
         await professionElement.click();
-      };
+      }
     });
   }
 
@@ -60,10 +60,10 @@ export class FillPersonalInformationPage {
 
   private async toolAttribute(tools: string[]): Promise<void> {
     await this.toolInfo.each(async (toolsElement) => {
-      let toolsElementValue = await toolsElement.getAttribute('value');
-      if (tools.indexOf(toolsElementValue)!==-1) {
+      const toolsElementValue = await toolsElement.getAttribute('value');
+      if (tools.indexOf(toolsElementValue) !== -1) {
         await toolsElement.click();
-      };
+      }
     });
   }
 
@@ -72,7 +72,7 @@ export class FillPersonalInformationPage {
   }
 
   private get continentDropdownOptions(): ElementArrayFinder {
-    return this.continentDropdown.$$('option')
+    return this.continentDropdown.$$('option');
   }
 
   private async selectContinentOption(continent: string): Promise<void> {
