@@ -28,7 +28,7 @@ describe('open browser', () =>{
       .toBe('IFrame practice page')
     });  
 
-    describe('checking iframe title', () =>{
+    describe('checking iframe title', () => {
       beforeAll(async () => {
         await iFramePage.goToIFrameOne();
         pageTitle = await iFramePage.getPageName();
@@ -39,28 +39,28 @@ describe('open browser', () =>{
           .toBe('Automation Practice Form');
       });
 
-      describe('return to globla and check name', () =>{
+      describe('return to globla and check name', () => {
         beforeAll(async () =>{
           await iFramePage.returnToGlobalpage();
           browser.sleep(3000);
           pageTitle = await iFramePage.getPageName();
         });
 
-        it('return to global page  check', async () =>{
+        it('return to global page  check', async () => {
           expect(pageTitle)
             .toBe('IFrame practice page');
         });
 
-        describe('change iframe height', () =>{
+        describe('change iframe height', () => {
           let newHeight = '100px';
           let actualIFrameHeight;
 
-          beforeAll(async () =>{
+          beforeAll(async () => {
             await iFramePage.changeIFrameHeight(newHeight);
             actualIFrameHeight = await iFramePage.getIFrameHeight;
           });
 
-          it(`checking height to ${newHeight}`, () =>{
+          it(`checking height to ${newHeight}`, () => {
             expect(actualIFrameHeight).toBe(newHeight);
           });
         });
