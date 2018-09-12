@@ -9,6 +9,14 @@ export class IFramePage {
     return $('#IF1');
   }
 
+  private get iFrameTitle (): ElementFinder {
+    return $('#content h1');
+  }
+
+  public getIFrameTitle (): promise.Promise<string> {
+    return this.iFrameTitle.getText();
+  }
+
   public get getIFrameHeight(): promise.Promise<string> {
     return this.iFrame.getCssValue('height');
   }

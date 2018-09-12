@@ -39,13 +39,14 @@ describe('open browser', () => {
       });
 
       describe('return to globla and check name', () => {
+        let iFrameTitle: string;
         beforeAll(async () => {
           await iFramePage.returnToGlobalpage();
-          pageTitle = await iFramePage.getPageName();
+          iFrameTitle = await iFramePage.getIFrameTitle();
         });
 
         it('return to global page  check', async () => {
-          expect(pageTitle)
+          expect(iFrameTitle)
             .toBe('IFrame practice page');
         });
 
