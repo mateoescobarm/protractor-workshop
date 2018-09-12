@@ -1,4 +1,4 @@
-import { ElementFinder, $, promise, browser } from 'protractor';
+import { ElementFinder, $, promise, browser, ExpectedConditions } from 'protractor';
 
 export class IFramePage {
   private get pageName (): ElementFinder {
@@ -30,7 +30,8 @@ export class IFramePage {
     return this.pageName.getText();
   }
 
-  public goToIFrameOne (): promise.Promise<void> {
+  public async goToIFrameOne (): Promise<void> {
+    await browser.wait(ExpectedConditions.presenceOf(this.iFrame));
     return browser.switchTo().frame(this.iFrame.getWebElement());
   }
 
