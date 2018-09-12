@@ -10,7 +10,7 @@ export class IFramePage {
   }
 
   private get iFrameTitle() {
-    return $('#content h1');
+    return $('.content h1');
   }
 
   public getIFrameTitle() {
