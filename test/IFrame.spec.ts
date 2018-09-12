@@ -28,13 +28,14 @@ describe('open browser', () => {
     });
 
     describe('checking iframe title', () => {
+      let iFrameTitle: string;
       beforeAll(async () => {
         await iFramePage.goToIFrameOne();
-        pageTitle = await iFramePage.getPageName();
+        iFrameTitle = await iFramePage.getIFrameTitle();
       });
 
       it('Iframe name Check', async () => {
-        expect(pageTitle)
+        expect(iFrameTitle)
           .toBe('Automation Practice Form');
       });
 
