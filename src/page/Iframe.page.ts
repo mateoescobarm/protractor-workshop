@@ -5,19 +5,28 @@ export class IFramePage {
     return $('.page-title h1');
   }
 
-  public globalPageName (): promise.Promise<string> {
+  private get getIFrame (): ElementFinder {
+    return $('#IF1');
+  }
+
+  public get iFrameHeight(): promise.Promise<string> {
+    return this.getIFrame.getAttribute('height');
+  }
+
+  public async changIFrameHeight (newHeight: string): Promise<void> {
+    await browser.executeScript(`document.getElementById('IF1').style.height = '${newHeight}';`);
+  }
+
+  public getPageName (): promise.Promise<string> {
     return this.pageName.getText();
   }
 
   public goToIFrameOne (): promise.Promise<void> {
-    return browser.switchTo().frame($('#IF1'));
-  }
-
-  public getIFrameTitle(): promise.Promise<string> {
-    return $('h1').getText()
+    return browser.switchTo().frame(this.getIFrame.getWebElement());
   }
 
   public returnToGlobalpage (): promise.Promise<void> {
-    return $('h1').click();
+    return browser.switchTo().defaultContent();
   }
 }
+
