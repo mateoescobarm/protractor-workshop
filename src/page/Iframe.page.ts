@@ -34,7 +34,7 @@ export class IFramePage {
     return this.pageName.getText();
   }
 
-  public goToIFrameOne (): Promise<void> {
+  public goToIFrameOne (): promise.Promise<void> {
     return browser.switchTo().frame(this.iFrame.getWebElement());
   }
 
