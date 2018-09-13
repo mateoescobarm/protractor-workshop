@@ -19,7 +19,7 @@ describe('open browser', () => {
     let pageTitle: string;
 
     beforeEach(async () => {
-      browser.sleep(3000);
+      browser.sleep(10000);
       pageTitle = await iFramePage.getPageName();
     });
 

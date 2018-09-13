@@ -26,7 +26,8 @@ export class IFramePage {
     await browser.executeScript(`document.getElementById('IF1').style.width = '3000px';`);
   }
 
-  public getPageName (): promise.Promise<string> {
+  public async getPageName (): Promise<string> {
+    await browser.wait(ExpectedConditions.presenceOf(this.pageName));
     return this.pageName.getText();
   }
 
