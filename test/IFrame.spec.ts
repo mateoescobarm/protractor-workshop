@@ -27,40 +27,40 @@ describe('open browser', () => {
       .toBe('IFrame practice page');
     });
 
-    describe('checking iframe title', () => {
-      let iFrameTitle: string;
+    describe('change iframe height', () => {
+      const newHeight = '100px';
+      let actualIFrameHeight;
+
       beforeAll(async () => {
-        await iFramePage.goToIFrameOne();
-        iFrameTitle = await iFramePage.getIFrameTitle();
+        await iFramePage.changeIFrameHeight(newHeight);
+        actualIFrameHeight = await iFramePage.getIFrameHeight;
       });
 
-      it('Iframe name Check', async () => {
-        expect(iFrameTitle)
-          .toBe('Practice Automation Form');
+      it(`checking height to ${newHeight}`, () => {
+        expect(actualIFrameHeight).toBe(newHeight);
       });
 
-      describe('return to globla and check name', () => {
+      describe('checking iframe title', () => {
+        let iFrameTitle: string;
         beforeAll(async () => {
-          await iFramePage.returnToGlobalpage();
-          pageTitle = await iFramePage.getPageName();
+          await iFramePage.goToIFrameOne();
+          iFrameTitle = await iFramePage.getIFrameTitle();
         });
 
-        it('return to global page  check', async () => {
-          expect(pageTitle)
-            .toBe('IFrame practice page');
+        it('Iframe name Check', async () => {
+          expect(iFrameTitle)
+            .toBe('Practice Automation Form');
         });
 
-        describe('change iframe height', () => {
-          const newHeight = '100px';
-          let actualIFrameHeight;
-
+        describe('return to globla and check name', () => {
           beforeAll(async () => {
-            await iFramePage.changeIFrameHeight(newHeight);
-            actualIFrameHeight = await iFramePage.getIFrameHeight;
+            await iFramePage.returnToGlobalpage();
+            pageTitle = await iFramePage.getPageName();
           });
 
-          it(`checking height to ${newHeight}`, () => {
-            expect(actualIFrameHeight).toBe(newHeight);
+          it('return to global page  check', async () => {
+            expect(pageTitle)
+              .toBe('IFrame practice page');
           });
         });
       });
