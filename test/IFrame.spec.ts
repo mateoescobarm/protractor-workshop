@@ -19,7 +19,7 @@ describe('open browser', () => {
     let pageTitle: string;
 
     beforeEach(async () => {
-      browser.sleep(10000);
+      // browser.sleep(10000);
       pageTitle = await iFramePage.getPageName();
     });
 
@@ -29,14 +29,14 @@ describe('open browser', () => {
     });
 
     describe('checking iframe title', () => {
-      // let iFrameTitle: string;
+      let iFrameTitle: string;
       beforeAll(async () => {
         await iFramePage.goToIFrameOne();
-        // iFrameTitle = await iFramePage.getIFrameTitle();
+        iFrameTitle = await iFramePage.getIFrameTitle();
       });
 
       it('Iframe name Check', async () => {
-        expect(pageTitle)
+        expect(iFrameTitle)
           .toBe('Automation Practice Form');
       });
 
