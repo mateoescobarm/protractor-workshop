@@ -15,7 +15,7 @@ export class IFramePage {
 
   public async getIFrameTitle (): Promise<string> {
     await browser.wait(ExpectedConditions.presenceOf(this.pageName));
-    await browser.wait(ExpectedConditions.textToBePresentInElement(this.pageName,'Automation Practice Form' ), 30000);
+    await browser.wait(ExpectedConditions.textToBePresentInElement(this.pageName,'Automation Practice Form' ));
     return this.pageName.getText();
   }
 
