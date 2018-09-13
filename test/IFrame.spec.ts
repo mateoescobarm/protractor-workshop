@@ -18,7 +18,8 @@ describe('open browser', () => {
     const iFramePage: IFramePage = new IFramePage();
     let pageTitle: string;
 
-    beforeAll(async () => {
+    beforeEach(async () => {
+      browser.sleep(3000);
       pageTitle = await iFramePage.getPageName();
     });
 
@@ -28,15 +29,15 @@ describe('open browser', () => {
     });
 
     describe('checking iframe title', () => {
-      let iFrameTitle: string;
+      // let iFrameTitle: string;
       beforeAll(async () => {
         await iFramePage.goToIFrameOne();
-        iFrameTitle = await iFramePage.getIFrameTitle();
+        // iFrameTitle = await iFramePage.getIFrameTitle();
       });
 
       it('Iframe name Check', async () => {
-        expect(iFrameTitle)
-          .toBe('Practice Automation Form');
+        expect(pageTitle)
+          .toBe('Automation Practice Form');
       });
 
       describe('return to globla and check name', () => {
