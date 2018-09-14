@@ -15,12 +15,12 @@ describe('open browser', () => {
     });
 
     describe('confirmation step', () => {
-      it('Form Correctly Filled', async () => {
-        await expect(browser.getCurrentUrl())
+      fit('Form Correctly Filled', async () => {
+        expect(await browser.getCurrentUrl())
           .toBe(
             'http://toolsqa.com/automation-practice-form/?firstname=Alejandro&lastname=Perdomo'
-            + '&sex=Male&exp=7&profession=Automation+Tester&photo=&tool=Selenium+Webdriver'
-            + '&continents=South+America&submit='
+            + '&sex=Male&exp=7&profession=Automation+Tester&photo=upload_pic.JPG&tool=Selenium+'
+            + 'Webdriver&continents=South+America&submit='
           );
       });
     });
