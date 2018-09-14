@@ -9,10 +9,6 @@ export class IFramePage {
     return $('#IF1');
   }
 
-  // private get iFrameTitle (): ElementFinder {
-  //   return $('#content h1');
-  // }
-
   public async getIFrameTitle (): Promise<string> {
     await browser.wait(ExpectedConditions.presenceOf(this.pageName));
     return this.pageName.getText();
