@@ -9,14 +9,13 @@ export class IFramePage {
     return $('#IF1');
   }
 
-  private get iFrameTitle (): ElementFinder {
-    return $('#content h1');
-  }
+  // private get iFrameTitle (): ElementFinder {
+  //   return $('#content h1');
+  // }
 
   public async getIFrameTitle (): Promise<string> {
-    await browser.wait(ExpectedConditions.presenceOf(this.iFrameTitle));
-    await browser.wait(ExpectedConditions.textToBePresentInElement(this.iFrameTitle,'Automation Practice Form' ));
-    return this.iFrameTitle.getText();
+    await browser.wait(ExpectedConditions.presenceOf(this.pageName));
+    return this.pageName.getText();
   }
 
   public get getIFrameHeight(): promise.Promise<string> {
@@ -25,6 +24,7 @@ export class IFramePage {
 
   public async changeIFrameHeight (newHeight: string): Promise<void> {
     await browser.executeScript(`document.getElementById('IF1').style.height = '${newHeight}';`);
+    await browser.executeScript(`document.getElementById('IF1').style.width = '2000px';`);
   }
 
   public async getPageName (): Promise<string> {
