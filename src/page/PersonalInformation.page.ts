@@ -112,7 +112,7 @@ export class FillPersonalInformationPage {
       'Switch Commands',
       'Wait Commands',
       'WebElement Commands'],
-    file: '../../resources/jpg_for_upload.jpg'
+    file: '../../resources/upload_pic.JPG'
   };
 
   private async logInForm(personInfo) {
@@ -123,11 +123,11 @@ export class FillPersonalInformationPage {
     await this.professionAttribute(personInfo.profession);
     await this.toolAttribute(personInfo.tools);
     await this.selectContinentOption(personInfo.continent);
-    await this.uploadFile(personInfo.file);
+    return this.uploadFile(personInfo.file);
   }
 
   public async fillForm(): Promise<void> {
     await this.logInForm(this.alejandro);
-    await this.submitButton.click();
+    return this.submitButton.click();
   }
 }
