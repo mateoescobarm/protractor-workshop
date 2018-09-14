@@ -7,6 +7,7 @@ import {
   $$,
   ElementArrayFinder
 } from 'protractor';
+import { resolve } from 'url';
 
 export class FillPersonalInformationPage {
   private get firstNameField(): ElementFinder {
@@ -84,6 +85,15 @@ export class FillPersonalInformationPage {
     }).first().click();
   }
 
+  private get uploadInput(): ElementFinder {
+    return element(by.id('photo'));
+  }
+
+  private uploadFile(filePath: string): promise.Promise<void> {
+    const absolutePath = resolve(__dirname, filePath);
+    return this.uploadInput.sendKeys(absolutePath);
+  }
+
   private get submitButton(): ElementFinder {
     return $('#submit');
   }
@@ -101,7 +111,8 @@ export class FillPersonalInformationPage {
       'Navigation Commands',
       'Switch Commands',
       'Wait Commands',
-      'WebElement Commands']
+      'WebElement Commands'],
+    file: '../../resources/jpg_for_upload.jpg'
   };
 
   private async logInForm(personInfo) {
@@ -112,10 +123,11 @@ export class FillPersonalInformationPage {
     await this.professionAttribute(personInfo.profession);
     await this.toolAttribute(personInfo.tools);
     await this.selectContinentOption(personInfo.continent);
-    return this.submitButton.click();
+    await this.uploadFile(personInfo.file);
   }
 
-  public fillForm(): promise.Promise<void> {
-    return this.logInForm(this.alejandro);
+  public async fillForm(): Promise<void> {
+    await this.logInForm(this.alejandro);
+    await this.submitButton.click();
   }
 }
