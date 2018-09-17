@@ -15,6 +15,13 @@ describe('open browser', () => {
     });
 
     describe('confirmation step', () => {
+
+      beforeAll(async () => {
+        await personalInfo.submitForm();
+        await browser.stop(3000);
+        await personalInfo.firstNameField === '';
+      });
+
       fit('Form Correctly Filled', async () => {
         expect(await browser.getCurrentUrl())
           .toBe(

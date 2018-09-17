@@ -10,7 +10,7 @@ import {
 import { resolve } from 'url';
 
 export class FillPersonalInformationPage {
-  private get firstNameField(): ElementFinder {
+  public get firstNameField(): ElementFinder {
     return element(by.name('firstname'));
   }
 
@@ -127,7 +127,10 @@ export class FillPersonalInformationPage {
   }
 
   public async fillForm(): Promise<void> {
-    await this.logInForm(this.alejandro);
+    return this.logInForm(this.alejandro);
+  }
+
+  public async submitForm(): Promise<void> {
     return this.submitButton.click();
   }
 }
