@@ -9,4 +9,4 @@ export { PaymentStepPage } from './PaymentStep.page';
 export { BankPaymentPage } from './BankPayment.page';
 export { OrderResumePage } from './OrderResume.page';
 export { ProductAdded } from './ProductAddedModal.page';
-export { TermsOfServiceCheckBox } from './CheckBoxTermsOfService.page'
+export { TermsOfServiceCheckBox } from './CheckBoxTermsOfService.page';

@@ -2,7 +2,7 @@ import { $, ElementFinder, promise } from 'protractor';
 
 export class SignInStepPage {
   private get userNameField(): ElementFinder {
-  return $('#email');
+    return $('#email');
   }
   private get passwordField(): ElementFinder {
     return $('#passwd');
