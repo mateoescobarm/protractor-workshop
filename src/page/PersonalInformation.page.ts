@@ -10,7 +10,7 @@ import {
 import { resolve } from 'url';
 
 export class FillPersonalInformationPage {
-  public get firstNameField(): ElementFinder {
+  private get firstNameField(): ElementFinder {
     return element(by.name('firstname'));
   }
 
