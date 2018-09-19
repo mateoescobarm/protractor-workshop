@@ -12,14 +12,13 @@ import { MenuContentPage,
          ProductAdded,
          TermsOfServiceCheckBox} from '../src/page';
 
-
-describe('open browser', () =>{
+describe('open browser', () => {
 
   beforeEach(async () => {
     await browser.get('http://automationpractice.com/');
   });
 
-  describe('buying a T-Shirt', () =>{
+  describe('buying a T-Shirt', () => {
     const menuContentPage: MenuContentPage = new MenuContentPage();
     const productList: ProductList = new ProductList();
     const productDetail: ProductDetail = new ProductDetail();
@@ -36,14 +35,14 @@ describe('open browser', () =>{
       await proceedToCheckout.summaryProceedToCheckout();
     });
 
-    describe('sign in step', () =>{
+    describe('sign in step', () => {
       const signIn: SignInStepPage = new SignInStepPage();
 
       beforeEach(async () => {
         await signIn.fillForm();
       });
 
-      describe('adress and shipping steps', () =>{
+      describe('adress and shipping steps', () => {
         const adressProceed: AdressStepPage = new AdressStepPage();
         const checkBox: TermsOfServiceCheckBox = new TermsOfServiceCheckBox();
         const shippingStep: ShippingStepPage = new ShippingStepPage();
@@ -54,7 +53,7 @@ describe('open browser', () =>{
           await shippingStep.proceedToPayment();
         });
 
-        describe('bankment payment', () =>{
+        describe('bankment payment', () => {
           const paymentStep: PaymentStepPage = new PaymentStepPage();
           const bankPayment: BankPaymentPage = new BankPaymentPage();
 
@@ -62,9 +61,8 @@ describe('open browser', () =>{
             await paymentStep.selectPaymentMetodBankWire();
             await bankPayment.goToConfirmationPage();
           });
-        
 
-          describe('confirmation step', () => {  
+          describe('confirmation step', () => {
             const orderResume: OrderResumePage = new OrderResumePage();
 
             it('then should be bought a t-shirt', async () => {
