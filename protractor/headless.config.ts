@@ -6,9 +6,9 @@ export const config: Config = {
   SELENIUM_PROMISE_MANAGER: false,
   specs: ['../test/*.spec.js'],
   noGlobals: true,
-  getPageTimeout: 30000,
+  getPageTimeout: 50000,
   jasmineNodeOpts: {
-    defaultTimeoutInterval: 120000
+    defaultTimeoutInterval: 200000
   },
   onPrepare: () => {
     browser.manage().timeouts().implicitlyWait(0);

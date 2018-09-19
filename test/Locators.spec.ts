@@ -14,21 +14,22 @@ describe('open browser', () => {
       await personalInfo.fillForm();
     });
 
-    describe('confirmation step', () => {
+    describe('submit form', () => {
 
-      beforeAll(async () => {
+      beforeEach(async () => {
         await personalInfo.submitForm();
-        await browser.stop(3000);
-        await personalInfo.firstNameField === '';
       });
 
-      fit('Form Correctly Filled', async () => {
-        expect(await browser.getCurrentUrl())
-          .toBe(
-            'http://toolsqa.com/automation-practice-form/?firstname=Alejandro&lastname=Perdomo'
-            + '&sex=Male&exp=7&profession=Automation+Tester&photo=upload_pic.JPG&tool=Selenium+'
-            + 'Webdriver&continents=South+America&submit='
-          );
+      describe('confirmation step', () => {
+
+        fit('Form Correctly Filled', async () => {
+          expect(await browser.getCurrentUrl())
+            .toBe(
+              'http://toolsqa.com/automation-practice-form/?firstname=Alejandro&lastname=Perdomo'
+              + '&sex=Male&exp=7&profession=Automation+Tester&photo=upload_pic.JPG&tool=Selenium+'
+              + 'Webdriver&continents=South+America&submit='
+            );
+        });
       });
     });
   });
