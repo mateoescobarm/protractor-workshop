@@ -8,6 +8,7 @@ import {
   ElementArrayFinder
 } from 'protractor';
 import { resolve } from 'url';
+import { DownloadFile } from '../service';
 
 export class FillPersonalInformationPage {
   private get firstNameField(): ElementFinder {
@@ -98,6 +99,17 @@ export class FillPersonalInformationPage {
     return $('#submit');
   }
 
+  private get testFileDownloadLink(): ElementFinder {
+    return element(by.linkText('Test File to Download'));
+  }
+
+  private async download() {
+    const link = await this.testFileDownloadLink.getAttribute('href');
+
+    const service = new DownloadFile();
+    await service.downloadFile(link, 'testfile.xlsx');
+  }
+
   private alejandro = {
     firstName: 'Alejandro',
     lastName: 'Perdomo',
@@ -112,7 +124,8 @@ export class FillPersonalInformationPage {
       'Switch Commands',
       'Wait Commands',
       'WebElement Commands'],
-    file: '../../resources/upload_pic.JPG'
+    file: '../../resources/upload_pic.JPG',
+    downloadFile: true
   };
 
   private async logInForm(personInfo) {
@@ -123,7 +136,11 @@ export class FillPersonalInformationPage {
     await this.professionAttribute(personInfo.profession);
     await this.toolAttribute(personInfo.tools);
     await this.selectContinentOption(personInfo.continent);
-    return this.uploadFile(personInfo.file);
+    await this.uploadFile(personInfo.file);
+
+    if (personInfo.downloadFile) {
+      await this.download();
+    }
   }
 
   public async fillForm(): Promise<void> {
