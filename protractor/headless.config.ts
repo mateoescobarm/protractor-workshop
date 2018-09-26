@@ -38,10 +38,4 @@ export const config: Config = {
     browser.ignoreSynchronization = true;
     reporter();
   },
-  // capabilities: {
-  //   browserName: 'chrome',
-  //   chromeOptions: {
-  //     args: ['--headless', '--disable-gpu', '--window-size=800,600']
-  //   }
-  // }
 };
