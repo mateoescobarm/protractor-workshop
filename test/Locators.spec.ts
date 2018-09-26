@@ -1,5 +1,6 @@
 import { browser } from 'protractor';
 import { FillPersonalInformationPage } from '../src/page/PersonalInformation.page';
+import { DownloadFile } from '../src/service';
 
 describe('open browser', () => {
 
@@ -22,13 +23,18 @@ describe('open browser', () => {
 
       describe('confirmation step', () => {
 
-        fit('Form Correctly Filled', async () => {
+        it('Form Correctly Filled', async () => {
           expect(await browser.getCurrentUrl())
             .toBe(
               'http://toolsqa.com/automation-practice-form/?firstname=Alejandro&lastname=Perdomo'
               + '&sex=Male&exp=7&profession=Automation+Tester&photo=upload_pic.JPG&tool=Selenium+'
               + 'Webdriver&continents=South+America&submit='
             );
+        });
+        it('then should download a file', async () => {
+          const service = new DownloadFile();
+          const file = await service.readFileFromTemp('testfile.xlsx');
+          expect(file.byteLength).toBeGreaterThanOrEqual(8000);
         });
       });
     });
