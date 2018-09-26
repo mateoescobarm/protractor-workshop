@@ -4,7 +4,7 @@
   "description": "this is a workshop about protractor",
   "main": "index.js",
   "scripts": {
-    "clean": "rm -rf dist",
+    "clean": "rm -rf dist temp",
     "prebuild": "npm run clean",
     "build": "tsc",
     "test": "npm run test:headless",
